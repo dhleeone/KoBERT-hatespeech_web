@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://kit.fontawesome.com/61cbaa6e6f.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>GoldenGate</title>
+
+
+    <link rel="icon" href="favicon.png">
+    <!-- 스마트콘 파비콘 -->
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- 폰트 적용 -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- 호출 순서 중요 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="static/css/main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer src="static/js/na.js"></script>    
+    
+</head>
+
+<body>
+    <nav id="navbar" class="navbar">
+        <ul class="nav-menu">
+            <li>
+            <a data-scroll="one" href="#one" class="dot">
+                <span>혐오 표현 탐지기</span>
+            </a>
+            </li>
+            <li>
+            <a data-scroll="two" href="#two" class="dot">
+                <span>텔레그램 봇</span>
+            </a>
+            </li>
+            <li>
+            <a data-scroll="three" href="#three" class="dot">
+                <span>팀 소개</span>
+            </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="body__container">
+
+        <section id="one">
+            <!-- VISUAL -->
+            <!-- <section class="section section--visual"> -->
+                <div class="inner">
+                    <img src="static/img/wallpaper.png" style="width:100%; height:auto;">
+                </div>
+            <!-- </section> -->
+
+            <!-- FEATURE -->
+            <section class="section section--feature1">
+
+                <div class="summary" style="padding-left:30px;">
+                    <h2 class="summary__title"style="padding-bottom:30px; text-align:center;">
+                        😎골든게이트의 혐오표현 감지 사이트입니다.
+                    </h2>
+                    <div style="float:left; width:350px; margin-left:180px;">
+                        <p class="summary__description" style="text-align:center;">
+                            하단에 메시지를 입력하고 '결과 보기' 버튼을 눌러주세요.
+                        </p>
+                        <br></br>
+                        <form id="search-form" action = "/result" method = "POST" style="text-align:center;">
+            
+                            <textarea rows="8" cols="60" name="user_mes" id="search" class="input--text" placeholder="메세지를 입력해주세요✍" style="width:350px; height:100px;" ></textarea>
+                            
+                            <br></br>
+                            <p>
+                                <input type="submit", value="결과보기" class="btn btn--primary sign-up" margin:auto/>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+                <div class="summary" style=" margin-left:15px; text-align:center;">
+                    <h2 class="summary__description" style="text-align:center;">
+                        혐오 표현 탐지 결과
+                    </h2>
+                    <br> </br>
+                    <p class="summary__description">
+                        {% if cnt==1 %}
+                        <p class="summary__description">탐지된 혐오 표현이 없습니다.😅</p>
+                        {% else %}
+                        <p class="summary__description">{{result1}}</p>
+                        <br>
+                        <p class="summary__description">{{result2}}</p>
+                        {% endif %}
+                    </p>
+                    <br> </br>
+                    <br> </br>
+                </div>
+            </section>
+        </section>
+        
+        <section id="two">
+                <section class="section section--feature2">
+                    <div style="float:left; width:350px; margin-left:70px;">
+                        <img src="static/img/telegroup.png" style="width:380px; padding:10px; margin:10px;">
+                    </div>
+                    <div style=" margin-left:20px; margin-top: 130px;">
+                        <h2 class="summary__title">텔레그램 봇 사용하기</h2>
+                        <p class="summary__description">텔레그램 검색창에 @gatehatebot을 검색하고 <br>사용하고 있는 단체채팅방에 봇을 추가해보세요.🙏</p>
+                    </div>
+                </section>
+            </section>
+
+        <section id="three">
+                <section class="section section--feature"> 
+                    <div class="summary">
+                        <h2 class="summary__title">골든게이트🌉</h2>
+                        <p class="summary__description">GitHub fosters a fast, flexible, and collaborative development process that lets you work on your own or with others.</p>
+                    </div>
+                    <div class="video">
+                        <div style="text-align : center;">
+                            <img src="static/img/aboutme.png" style="width:330px;">
+                        </div>
+                    </div>
+
+                </section>
+                <div class="tiles">
+                    <div class="inner">
+                    </div>
+                </div>
+            </section>
+        
+        <!-- Footer -->
+
+            <div class="inner clearfix">
+
+
+                <div class="float--center">
+                    <a href="https://www.facebook.com/Golden_Gate-FinalProject_bot-107382691748735"><i class="fab fa-facebook fa-2x"  style="color:#C3C3C3; padding:7px;"></i></a>
+                    <a href="#"><i class="fab fa-github fa-2x" style="color:#C3C3C3; padding:7px;"></i></a>
+                    <a href="https://t.me/gatehatebot" target="_blank" title="봇을 사용하여 성능을 확인해보세요."><i class="fab fa-telegram-plane  fa-2x" style="color:#C3C3C3; padding:7px;"></i></a>
+                </div>
+
+            </div>
+        </footer>
+        <script src="/static/js/na.js" defer></script>
+
+    </div>
+</body>
+</html>
