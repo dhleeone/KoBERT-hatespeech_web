@@ -1,8 +1,8 @@
 #	https://goldengate1.run.goorm.io/home
 from flask import Flask, render_template, request, url_for
 from PIL import Image
-import test
-import fword
+import model
+import slangword
 import purify
 
 app = Flask(__name__)
@@ -14,8 +14,8 @@ def home():
 @app.route('/result', methods=['POST', 'GET'])
 def result_message():
   text = request.form['user_mes']
-  g_m = test.mespredict(text)
-  s_m = fword.slang(text)
+  g_m = model.mespredict(text)
+  s_m = slangword.slang(text)
   p_m = purify.purifier(text)
   result1 = "{0} {1}".format(s_m, g_m)
   result2 = p_m

@@ -27,16 +27,16 @@ import xlrd
 chatbot_data = pd.read_excel('dataset.xlsx', engine='openpyxl' )
 
 
-chatbot_data.loc[(chatbot_data['Emotion'] == "공포"), 'Emotion'] = 0  #공포 => 0
-chatbot_data.loc[(chatbot_data['Emotion'] == "놀람"), 'Emotion'] = 1  #놀람 => 1
-chatbot_data.loc[(chatbot_data['Emotion'] == "분노"), 'Emotion'] = 2  #분노 => 2
-chatbot_data.loc[(chatbot_data['Emotion'] == "슬픔"), 'Emotion'] = 3  #슬픔 => 3
-chatbot_data.loc[(chatbot_data['Emotion'] == "중립"), 'Emotion'] = 4  #중립 => 4
-chatbot_data.loc[(chatbot_data['Emotion'] == "행복"), 'Emotion'] = 5  #행복 => 5
-chatbot_data.loc[(chatbot_data['Emotion'] == "혐오"), 'Emotion'] = 6  #혐오 => 6
+chatbot_data.loc[(chatbot_data['label'] == "0"), 'label'] = 0  #중립 => 0
+chatbot_data.loc[(chatbot_data['label'] == "1"), 'label'] = 1  #젠더,퀴어 =>1
+chatbot_data.loc[(chatbot_data['label'] == "2"), 'label'] = 2  #지역 => 2
+chatbot_data.loc[(chatbot_data['label'] == "3"), 'label'] = 3  #인종 => 3
+chatbot_data.loc[(chatbot_data['label'] == "4"), 'label'] = 4  #정치 => 4
+chatbot_data.loc[(chatbot_data['label'] == "5"), 'label'] = 5  #세대 => 5
+chatbot_data.loc[(chatbot_data['label'] == "6"), 'label'] = 6  #종교 => 6
 
 data_list = []
-for q, label in zip(chatbot_data['Sentence'], chatbot_data['Emotion'])  :
+for q, label in zip(chatbot_data['contents'], chatbot_data['label'])  :
     data = []
     data.append(q)
     data.append(str(label))
@@ -70,7 +70,7 @@ class BERTDataset(Dataset):
 max_len = 64
 batch_size = 64
 warmup_ratio = 0.1
-num_epochs = 5
+num_epochs = 10
 max_grad_norm = 1
 log_interval = 200
 learning_rate =  5e-5
@@ -146,7 +146,7 @@ train_dataloader
 
 #모델로드
 device = torch.device('cpu') 
-path = "test.pt" 
+path = "model.pth" 
 #model = TheModelClass(*args, **kwargs) 
 model.load_state_dict(torch.load(path, map_location=device) , strict=False)
 
@@ -157,16 +157,6 @@ tokenizer = get_tokenizer()
 tok = nlp.data.BERTSPTokenizer(tokenizer, vocab, lower=False)
    
 
-# end = 1
-# while end == 1 :
-#     sentence = input("하고싶은 말을 입력해주세요 : ")
-#     if sentence == 0 :
-#         break
-#     predict(sentence)
-#     print("\n")
-
-
-#텔레그램 메세지 예측
 def mespredict(predict_sentence):
     
     data = [predict_sentence, '0']
@@ -192,23 +182,24 @@ def mespredict(predict_sentence):
             logits=i
             logits = logits.detach().cpu().numpy()
 
-            if np.argmax(logits) == 0:
-              return ">> 입력하신 내용에서 공포가 느껴집니다."
+            if np.argmax(logits) == 1:
+              return ">> 입력하신 내용에서 성 혐오가 느껴집니다."
               
-            elif np.argmax(logits) == 1:
-              return ">> 입력하신 내용에서 놀람이 느껴집니다."
-        
             elif np.argmax(logits) == 2:
-              return ">> 입력하신 내용에서 분노가 느껴집니다."
+              return ">> 입력하신 내용에서 지역 혐오가 느껴집니다."
         
             elif np.argmax(logits) == 3:
-              return ">> 입력하신 내용에서 슬픔이 느껴집니다."
+              return ">> 입력하신 내용에서 인종 차별이 느껴집니다."
+        
+            elif np.argmax(logits) == 4:
+              return ">> 입력하신 내용에서 정치 혐오가 느껴집니다."
         
             elif np.argmax(logits) == 5:
-              return ">> 입력하신 내용에서 행복이 느껴집니다."
+              return ">> 입력하신 내용에서 세대 혐오가 느껴집니다."
         
             elif np.argmax(logits) == 6:
-              return ">> 입력하신 내용에서 혐오가 느껴집니다."
+              return ">> 입력하신 내용에서 종교 차별이 느껴집니다."
 
-            elif np.argmax(logits) == 4: #중립
+
+            elif np.argmax(logits) == 0: #중립
               return " "
