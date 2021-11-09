@@ -23,6 +23,7 @@
 * pip install openpyxl
 
 ## 향후 일정
-* 혐오 표현 데이터셋 수집 완료 후 Kobert 모델 학습 및 서비스 재적용 예정
+* 혐오 표현 데이터셋 추가 수집 완료 후 Kobert 모델 학습 및 서비스 재적용 예정
 
 ## 서비스 시현
+![hate_web](https://user-images.githubusercontent.com/78197111/140931309-08d88341-494a-415e-8077-70f13016011b.gif)
