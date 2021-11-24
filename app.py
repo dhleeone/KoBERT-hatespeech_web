@@ -17,7 +17,7 @@ def result_message():
   g_m = model.mespredict(text)
   s_m = slangword.slang(text)
   p_m = purify.purifier(text)
-  # result1 = "{0} {1}".format(s_m, g_m)
+    
   result1 = s_m
   result2 = g_m
   result3 = p_m
