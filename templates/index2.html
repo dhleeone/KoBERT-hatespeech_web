@@ -17,11 +17,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
     <link rel="stylesheet" href="static/css/main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script defer src="static/js/na.js"></script>    
-    
+    <script defer src="static/js/na.js"></script>
 </head>
 
-<body>
+<body style="min-width:1370px;" align="center">
     <nav id="navbar" class="navbar">
         <ul class="nav-menu">
             <li>
@@ -54,19 +53,21 @@
 
             <!-- FEATURE -->
             <section class="section section--feature1">
-
+                <h2 class="summary__title"style="padding-bottom:30px; text-align:center;">
+                    😎골든게이트의 혐오표현 감지 사이트입니다.
+                </h2>
                 <div class="summary" style="padding-left:30px;">
-                    <h2 class="summary__title"style="padding-bottom:30px; text-align:center;">
-                        😎골든게이트의 혐오표현 감지 사이트입니다.
-                    </h2>
                     <div style="float:left; width:350px; margin-left:180px;">
                         <p class="summary__description" style="text-align:center;">
-                            하단에 메시지를 입력하고 '결과 보기' 버튼을 눌러주세요.
+                            하단에 메시지를 입력하고
+                        </p>
+                        <p class="summary__description" style="text-align:center;">
+                            '결과 보기' 버튼을 눌러주세요.
                         </p>
                         <br></br>
                         <form id="search-form" action = "/result" method = "POST" style="text-align:center;">
             
-                            <textarea rows="8" cols="60" name="user_mes" id="search" class="input--text" placeholder="메세지를 입력해주세요✍" style="width:350px; height:100px;" ></textarea>
+                            <textarea rows="8" cols="60" name="user_mes" id="search" class="input--text" placeholder="메세지를 입력해주세요✍" style="width:350px; height:100px;" >{{result1}}</textarea>
                             
                             <br></br>
                             <p>
@@ -75,18 +76,22 @@
                         </form>
                     </div>
                 </div>
-                <div class="summary" style=" margin-left:15px; text-align:center;">
-                    <h2 class="summary__description" style="text-align:center;">
+                <div class="summary" style="float:right; padding-right:200px; text-align:left;">
+                    <h2 class="summary__description" style="text-align:center; font-weight: 360;">
                         혐오 표현 탐지 결과
                     </h2>
                     <br> </br>
-                    <p class="summary__description">
+                    <p class="summary__description" style="color:black;">
                         {% if cnt==1 %}
-                        <p class="summary__description">탐지된 혐오 표현이 없습니다.😅</p>
+                        <p class="summary__description" style="color:black;">탐지된 혐오 표현이 없습니다.😅</p>
                         {% else %}
-                        <p class="summary__description">{{result1}}</p>
-                        <br>
-                        <p class="summary__description">{{result2}}</p>
+                        <p class="summary__description" style="color:black; text-align:center;">{{result2}}</p>
+                        <br><br>
+                        <p class="summary__description" style="color:black;">
+                            {% for mes in result3 %}
+                                {{mes}}<br>
+                            {% endfor %}
+                        </p>
                         {% endif %}
                     </p>
                     <br> </br>

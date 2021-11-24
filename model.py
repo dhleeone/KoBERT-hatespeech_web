@@ -183,22 +183,22 @@ def mespredict(predict_sentence):
             logits = logits.detach().cpu().numpy()
 
             if np.argmax(logits) == 1:
-              return ">> 입력하신 내용에서 성 혐오가 느껴집니다."
+              return "입력하신 내용에서 성 혐오가 느껴집니다."
               
             elif np.argmax(logits) == 2:
-              return ">> 입력하신 내용에서 지역 혐오가 느껴집니다."
+              return "입력하신 내용에서 지역 혐오가 느껴집니다."
         
             elif np.argmax(logits) == 3:
-              return ">> 입력하신 내용에서 인종 차별이 느껴집니다."
+              return "입력하신 내용에서 인종 차별이 느껴집니다."
         
             elif np.argmax(logits) == 4:
-              return ">> 입력하신 내용에서 정치 혐오가 느껴집니다."
+              return "입력하신 내용에서 정치 혐오가 느껴집니다."
         
             elif np.argmax(logits) == 5:
-              return ">> 입력하신 내용에서 세대 혐오가 느껴집니다."
+              return "입력하신 내용에서 세대 혐오가 느껴집니다."
         
             elif np.argmax(logits) == 6:
-              return ">> 입력하신 내용에서 종교 차별이 느껴집니다."
+              return "입력하신 내용에서 종교 차별이 느껴집니다."
 
 
             elif np.argmax(logits) == 0: #중립

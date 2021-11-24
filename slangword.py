@@ -494,10 +494,15 @@ list_slang = ['nflavor', 'fuckyou','혀로보지핧기','ㄱㅐㅅㅐㄲl','penn
      'ㅆㅂ']
 
 
+# def slang(string):
+#     for x in range(len(list_slang)):
+#         string = string.replace(list_slang[x],"*"*len(list_slang[x]))
+#     if "*" in string:
+#         return string
+#     else:
+#         return ""
+    
 def slang(string):
     for x in range(len(list_slang)):
         string = string.replace(list_slang[x],"*"*len(list_slang[x]))
-    if "*" in string:
-        return string
-    else:
-        return ""
+    return string
