@@ -225,9 +225,9 @@ def purifier(string):
                 break;
                 
     if len(key_li) >= 1:
-        mes_li =[]
+        mes_li =["이렇게 바꾸어 표현해주세요!"]
         for j in range(len(key_li)):
-            purified_mes = f"'{val_li[j]}'(을)를 '{key_li[j]}'(으)로 바꾸어 표현해주세요!"
+            purified_mes = f"'{val_li[j]}'   👉   '{key_li[j]}'"
             mes_li.append(purified_mes)
         return mes_li
     else:
