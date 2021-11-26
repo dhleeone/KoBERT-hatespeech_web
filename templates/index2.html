@@ -67,7 +67,8 @@
                         <br></br>
                         <form id="search-form" action = "/result" method = "POST" style="text-align:center;">
             
-                            <textarea rows="8" cols="60" name="user_mes" id="search" class="input--text" placeholder="메세지를 입력해주세요✍" style="width:350px; height:100px;" >{{result1}}</textarea>
+                            <textarea rows="8" cols="60" onclick="this.value=''"
+ name="user_mes" id="search" class="input--text" placeholder="메세지를 입력해주세요✍" style="width:350px; height:100px;" >{{result1}}</textarea>
                             
                             <br></br>
                             <p>
@@ -76,7 +77,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="summary" style="float:right; padding-right:200px; text-align:left;">
+                <div class="summary" style="float:right; padding-right:200px; text-align:center;">
                     <h2 class="summary__description" style="text-align:center; font-weight: 360;">
                         혐오 표현 탐지 결과
                     </h2>
@@ -87,7 +88,7 @@
                         {% else %}
                         <p class="summary__description" style="color:black; text-align:center;">{{result2}}</p>
                         <br><br>
-                        <p class="summary__description" style="color:black;">
+                        <p class="summary__description" style="color:black; text-align:center; font-size:17px;">
                             {% for mes in result3 %}
                                 {{mes}}<br>
                             {% endfor %}
@@ -103,9 +104,9 @@
         <section id="two">
                 <section class="section section--feature2">
                     <div style="float:left; width:350px; margin-left:70px;">
-                        <img src="static/img/telegroup.png" style="width:380px; padding:10px; margin:10px;">
+                        <img src="static/img/telegroup.png" style="width:380px; padding:10px; margin:100px;">
                     </div>
-                    <div style=" margin-left:20px; margin-top: 130px;">
+                    <div style=" margin-left:20px; margin-top: 250px;">
                         <h2 class="summary__title">텔레그램 봇 사용하기</h2>
                         <p class="summary__description">텔레그램 검색창에 @gatehatebot을 검색하고 <br>사용하고 있는 단체채팅방에 봇을 추가해보세요.🙏</p>
                     </div>
@@ -114,9 +115,12 @@
 
         <section id="three">
                 <section class="section section--feature"> 
-                    <div class="summary">
+                    <div class="summary" style = "margin-top: 30px;">
                         <h2 class="summary__title">골든게이트🌉</h2>
-                        <p class="summary__description"></p>
+                        <p class="summary__description">Hate Speech Gate는 KoBERT에 혐오 표현 데이터셋을 학습시켜 만든 혐오 표현 탐지기입니다. <br>혐오 표현은 성, 지역, 인종, 정치성향, 세대, 종교
+총 6개의 카테고리로 나누었으며,<br>욕설 마스킹 기능과 순화 표현 추천 기능을 구현했습니다.
+<br>이 프로젝트가 혐오 표현에 대한 인식 개선과<br>혐오 표현 사용을 
+단절하는 과정의 일환이 되었으면 좋겠습니다.</p>
                     </div>
                     <div class="video">
                         <div style="text-align : center;">
