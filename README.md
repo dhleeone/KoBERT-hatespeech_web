@@ -3,7 +3,7 @@
 * 기간 : 2021.10.14 ~
 
 ## 프로젝트 소개
-* KoBERT를 활용한 혐오표현 탐지/욕설 마스킹/순화 표현 추천 기능을 갖춘 웹페이지 구현
+* KoBERT를 활용한 혐오표현 탐지 및 욕설 마스킹/순화 표현 추천 기능을 갖춘 웹페이지 구현
 
 ## 프로젝트 일정
 * Notion link: https://bit.ly/3ESgTEI
@@ -21,9 +21,6 @@
 * pip install xlrd
 * pip3 install torch==1.10.0+cpu torchvision==0.11.1+cpu torchaudio==0.10.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
 * pip install openpyxl
-
-## 향후 일정
-* 혐오 표현 데이터셋 추가 수집 완료 후 Kobert 모델 학습 및 서비스 재적용 예정
-
-## 서비스 시현
+* 
+## 서비스 시연
 ![hate_web](https://user-images.githubusercontent.com/78197111/140931309-08d88341-494a-415e-8077-70f13016011b.gif)
