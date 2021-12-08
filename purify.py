@@ -206,16 +206,18 @@ values = list(hate_dict.values())
 def purifier(string):
     key_li = []
     val_li = []
-    for i in range(len(keys)):
+    str_li = list(string.split())
+    
+    for s in range(len(str_li)):
         cnt=0
-        for j in range(len(values[i])):
-            if values[i][j] in string:
-                key_li.append(keys[i])
-                val_li.append(values[i][j])
-                cnt+=1
-            if cnt>=1:
-                break;
-                
+        for i in range(len(keys)):
+            for j in range(len(values[i])):
+                if (values[i][j] in str_li[s]) and (values[i][j] not in val_li):
+                    key_li.append(keys[i])
+                    val_li.append(values[i][j])
+                    cnt+=1
+                if cnt>=1:
+                    break;                
     if len(key_li) >= 1:
         mes_li =["이렇게 바꾸어 표현해주세요!"]
         for j in range(len(key_li)):
