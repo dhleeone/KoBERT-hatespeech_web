@@ -1,4 +1,4 @@
-#	https://goldengate1.run.goorm.io/home
+# https://goldengate1.run.goorm.io/home
 from flask import Flask, render_template, request, url_for
 from PIL import Image
 import model
