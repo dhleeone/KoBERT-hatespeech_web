@@ -6,7 +6,7 @@
 * KoBERT를 활용한 혐오표현 탐지 및 욕설 마스킹/순화 표현 추천 기능을 갖춘 웹페이지 구현
 
 ## 프로젝트 일정
-* Notion link: https://www.notion.so/a5f757e21118418185a2ac5c89412d12?v=d0c471c9249046bbb020b1bf5a80052e
+* Notion link: https://polydactyl-target-cbe.notion.site/a5f757e21118418185a2ac5c89412d12?v=d0c471c9249046bbb020b1bf5a80052e
 
 ## 개발 환경
 * google colaboratory
