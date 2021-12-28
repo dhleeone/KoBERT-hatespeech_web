@@ -21,6 +21,6 @@
 * pip install xlrd
 * pip3 install torch==1.10.0+cpu torchvision==0.11.1+cpu torchaudio==0.10.0+cpu -f https://download.pytorch.org/whl/cpu/torch_stable.html
 * pip install openpyxl
-* 
+
 ## 서비스 시연
 ![ezgif com-gif-maker](https://user-images.githubusercontent.com/78197111/144001285-f379a72a-1853-4102-b499-ff409541d893.gif)
