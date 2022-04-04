@@ -8,17 +8,13 @@
 ## 프로젝트 일정
 * Notion link: https://bit.ly/3pmcR2A
 
-## stack
+## Stack
 * Back-End: Python
 * Front-End: CSS,HTML,Javascript
 * Framework: Flask
 * Library: BERT,GluonNLP,Mxnet,Pytorch,Sentencepiece,Transformers
 * IDE: Colab,groomide
 * Collaboration: Notion,Slack
-
-## 개발 환경
-* google colaboratory
-* goorm ide
 
 ## Installation
 * pip install mxnet
